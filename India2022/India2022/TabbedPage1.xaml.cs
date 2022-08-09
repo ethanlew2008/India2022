@@ -45,8 +45,8 @@ namespace India2022
 
             co2 = flighttime.ElapsedMilliseconds; co2 /= 1000; co2/= 60; co2 *= 4;
 
-            countries = temp / 38;
-            countries = Math.Floor(countries);
+            countries = 525 / 38;
+            Math.Ceiling(countries);
             
             if (countries >= 10)
             {
@@ -72,9 +72,9 @@ namespace India2022
             CountriesFlew.Text = countries + " Countries";
             LocalTime.Text = DateTime.Now.ToString("HH:mm") + " Local";
             TimeIn.Text = "IN:" + temp1;
-            TimeUK.Text = "UK:" + uktime + ":" + mins;
-            if(co2 >= 100) { co2 /= 1000; CO2.Text = co2 + "T CO2"; }
-            else { CO2.Text = co2 + "KG CO2"; }
+            TimeUK.Text = "UK: " + uktime + ":" + mins;
+            if(co2 >= 100) { co2 /= 1000; co2 = Math.Round(co2, 2); CO2.Text = co2 + "T CO2"; }
+            else { co2 = Math.Ceiling(co2); CO2.Text = co2 + "KG CO2"; }
 
 
         }
