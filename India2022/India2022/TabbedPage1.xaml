@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            SelectedTabColor="Black"
+            xmlns:anroid="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+             x:Class="India2022.TabbedPage1">
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Flight" BackgroundColor="White" >
+
+        <Grid Margin="50,0,50,100" VerticalOptions="EndAndExpand">
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="Time" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="0" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="CO2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="2" Grid.Column="0" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="Percentage" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="CountriesFlew" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="2" Grid.Column="1"/>
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="LocalTime" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="BatteryPer" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="4" Grid.Column="0"/>
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="TimeUK" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="6" Grid.Column="0"/>
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="TimeIn" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="6" Grid.Column="1"/>
+            <Button Text="Start" x:Name="StartFlyButton" Clicked="StartFlyButton_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1"/>
+            <Button Text="Update" x:Name="UpdateFlyButton" Clicked="UpdateFlyButton_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1" Opacity="0"/>
+
+        </Grid>
+
+
+
+    </ContentPage>
+    <ContentPage Title="Home" />
+  <ContentPage Title="Tab 3" />
+</TabbedPage>
