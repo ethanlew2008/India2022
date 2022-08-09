@@ -17,7 +17,7 @@ namespace India2022
     {
         bool flight = false;
         Stopwatch flighttime = new Stopwatch();
-        Int64 co2 = 0;
+        double co2 = 0;
         double countries = 0;
 
         public TabbedPage1()
@@ -73,7 +73,7 @@ namespace India2022
             LocalTime.Text = DateTime.Now.ToString("HH:mm") + " Local";
             TimeIn.Text = "IN:" + temp1;
             TimeUK.Text = "UK:" + uktime + ":" + mins;
-            if(co2 >= 1000) { co2 /= 1000; CO2.Text = co2 + "T CO2"; }
+            if(co2 >= 100) { co2 /= 1000; CO2.Text = co2 + "T CO2"; }
             else { CO2.Text = co2 + "KG CO2"; }
 
 
