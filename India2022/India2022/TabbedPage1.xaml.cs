@@ -23,17 +23,18 @@ namespace India2022
         public TabbedPage1()
         {
             InitializeComponent();
-           
         }
 
         private void StartFlyButton_Clicked(object sender, EventArgs e)
         {
             if (!flight) { flighttime.Start();  flight = true; UpdateFlyButton.Opacity = 1; StartFlyButton.Text = "Stop"; }
-            else { flight = false; flighttime.Reset(); UpdateFlyButton.Opacity = 0;  StartFlyButton.Text = "Start"; }                       
+            else { flight = false; flighttime.Reset(); UpdateFlyButton.Opacity = 0;  StartFlyButton.Text = "Start"; }
+            BackgroundImageSource = "logoairport4india.png";
+            
         }
 
         private void UpdateFlyButton_Clicked(object sender, EventArgs e)
-        {
+        {;
             Time.Text = "";
             int temp = Convert.ToInt32(3.15e+7 - flighttime.ElapsedMilliseconds); temp /= 1000; temp /= 60;
             if (temp <= 0) { Time.Text = "Welcome"; flighttime.Reset(); return; }
