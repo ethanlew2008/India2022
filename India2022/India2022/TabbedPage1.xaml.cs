@@ -9,6 +9,7 @@ using System.Diagnostics;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using Plugin.Connectivity;
+using static Xamarin.Essentials.Permissions;
 
 namespace India2022
 {
@@ -51,9 +52,6 @@ namespace India2022
         {
             if (!flight) { flighttime.Start();  flight = true; UpdateFlyButton.Opacity = 1; StartFlyButton.Text = "Stop"; }
             else { flight = false; flighttime.Reset(); UpdateFlyButton.Opacity = 0;  StartFlyButton.Text = "Start"; }
-            BackgroundImageSource = "logoairport4india.png";
-            if (CrossConnectivity.Current.IsConnected) { BatteryPer.Text = "AirMode: Yes"; }
-            else {Connection.Text = "AirMode: No"; }
         }
 
         private void UpdateFlyButton_Clicked(object sender, EventArgs e)
@@ -79,8 +77,8 @@ namespace India2022
                 countries *= -1;
             }
 
-            if (CrossConnectivity.Current.IsConnected) { BatteryPer.Text = "Data: On"; }
-            else { BatteryPer.Text = "Data: Off"; }
+            if (CrossConnectivity.Current.IsConnected) { BatteryPer.Text = "AirMode: Yes"; }
+            else { Connection.Text = "AirMode: No"; }
 
             var indiatime = DateTime.UtcNow.AddMinutes(330);
             indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
@@ -126,5 +124,16 @@ namespace India2022
             TimeHomeUK.Text = "LON: " + uktime + ":" + mins;
             TimeHomeIN.Text = "DEL:" + temp1;
         }
+
+        private void FlashButton_Clicked(object sender, EventArgs e)
+        {
+            
+        }
+
+        static async Task FLash2Async()
+        {
+            await Xamarin.Essentials.Flashlight.TurnOnAsync();
+        }
+        
     }
 }

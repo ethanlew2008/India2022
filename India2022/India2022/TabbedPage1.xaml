@@ -81,6 +81,7 @@
 
 
             <Button Text="Update" x:Name="UpdateButtonHome" Clicked="UpdateButtonHome_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1"/>
+            <Button Text="Flash" x:Name="FlashButton" Clicked="FlashButton_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1"/>
             <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="TimeHomeUK" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="0" />
             <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="TimeHomeIN" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1" />
             <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="Connection" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="2" Grid.Column="0" />
