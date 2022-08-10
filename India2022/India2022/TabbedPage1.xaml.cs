@@ -13,10 +13,14 @@ using static Xamarin.Essentials.Permissions;
 
 namespace India2022
 {
+
+    
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TabbedPage1 : TabbedPage
     {
         bool flight = false;
+        static bool flash = true;
         Stopwatch flighttime = new Stopwatch();
         double co2 = 0;
         double countries = 14;
@@ -35,6 +39,7 @@ namespace India2022
             int uktime = DateTime.UtcNow.Hour + 1;
             string mins = Convert.ToString(DateTime.UtcNow.Minute);
             if (mins.Length == 1) { mins = "0" + mins; }
+            if (uktime >= 24) { uktime -= 24; }
 
             var profiles = Connectivity.ConnectionProfiles;
             if ((CrossConnectivity.Current.IsConnected) && !profiles.Contains(ConnectionProfile.WiFi)) { Connection.Text = "Data On"; }
@@ -120,6 +125,8 @@ namespace India2022
             if ((CrossConnectivity.Current.IsConnected) && !profiles.Contains(ConnectionProfile.WiFi)) { Connection.Text = "Data On"; }
             else { Connection.Text = "Data Off"; }
 
+            if(uktime >= 24) { uktime -= 24; }
+
             HomeLocalTime.Text = "LOC: " + DateTime.Now.ToString("HH:mm");
             TimeHomeUK.Text = "LON: " + uktime + ":" + mins;
             TimeHomeIN.Text = "DEL:" + temp1;
@@ -127,12 +134,15 @@ namespace India2022
 
         private void FlashButton_Clicked(object sender, EventArgs e)
         {
-            
+            FLash2Async();
         }
 
         static async Task FLash2Async()
         {
-            await Xamarin.Essentials.Flashlight.TurnOnAsync();
+            flash = !flash;
+            if (flash) { await Xamarin.Essentials.Flashlight.TurnOffAsync(); }
+            else { await Xamarin.Essentials.Flashlight.TurnOnAsync(); }
+            
         }
         
     }
