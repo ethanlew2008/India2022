@@ -18,11 +18,33 @@ namespace India2022
         bool flight = false;
         Stopwatch flighttime = new Stopwatch();
         double co2 = 0;
-        double countries = 0;
+        double countries = 14;
 
         public TabbedPage1()
         {
             InitializeComponent();
+            CurrentPage = Children[1];
+
+            var indiatime = DateTime.UtcNow.AddMinutes(330);
+            indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
+            string temp1 = Convert.ToString(indiatime);
+            temp1 = temp1.Substring(10);
+            temp1 = temp1.Remove(temp1.Length - 3, 3);
+
+            int uktime = DateTime.UtcNow.Hour + 1;
+            string mins = Convert.ToString(DateTime.UtcNow.Minute);
+            if (mins.Length == 1) { mins = "0" + mins; }
+
+            var profiles = Connectivity.ConnectionProfiles;
+            if ((CrossConnectivity.Current.IsConnected) && !profiles.Contains(ConnectionProfile.WiFi)) { Connection.Text = "Data On"; }
+            else { Connection.Text = "Data Off"; }
+
+
+
+
+            HomeLocalTime.Text = "LOC: " + DateTime.Now.ToString("HH:mm");
+            TimeHomeUK.Text = "LON: " + uktime + ":" + mins;
+            TimeHomeIN.Text = "DEL:" + temp1;
         }
 
         private void StartFlyButton_Clicked(object sender, EventArgs e)
@@ -30,7 +52,8 @@ namespace India2022
             if (!flight) { flighttime.Start();  flight = true; UpdateFlyButton.Opacity = 1; StartFlyButton.Text = "Stop"; }
             else { flight = false; flighttime.Reset(); UpdateFlyButton.Opacity = 0;  StartFlyButton.Text = "Start"; }
             BackgroundImageSource = "logoairport4india.png";
-            
+            if (CrossConnectivity.Current.IsConnected) { BatteryPer.Text = "AirMode: Yes"; }
+            else {Connection.Text = "AirMode: No"; }
         }
 
         private void UpdateFlyButton_Clicked(object sender, EventArgs e)
@@ -46,9 +69,10 @@ namespace India2022
 
             co2 = flighttime.ElapsedMilliseconds; co2 /= 1000; co2/= 60; co2 *= 4;
 
-            countries = 525 / 38;
-            Math.Ceiling(countries);
-            
+            countries = flighttime.ElapsedMilliseconds / 1000; countries /= 60;
+            countries /= 38;
+            countries = Convert.ToInt32(countries);
+
             if (countries >= 10)
             {
                 countries = countries - countries;
@@ -78,6 +102,29 @@ namespace India2022
             else { co2 = Math.Ceiling(co2); CO2.Text = co2 + "KG CO2"; }
 
 
+        }
+
+        private void UpdateButtonHome_Clicked(object sender, EventArgs e)
+        {
+            var indiatime = DateTime.UtcNow.AddMinutes(330);
+            indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
+            string temp1 = Convert.ToString(indiatime);
+            temp1 = temp1.Substring(10);
+            temp1 = temp1.Remove(temp1.Length - 3, 3);
+
+            int uktime = DateTime.UtcNow.Hour + 1;
+            string mins = Convert.ToString(DateTime.UtcNow.Minute);
+            if (mins.Length == 1) { mins = "0" + mins; }
+
+
+            var profiles = Connectivity.ConnectionProfiles;
+            
+            if ((CrossConnectivity.Current.IsConnected) && !profiles.Contains(ConnectionProfile.WiFi)) { Connection.Text = "Data On"; }
+            else { Connection.Text = "Data Off"; }
+
+            HomeLocalTime.Text = "LOC: " + DateTime.Now.ToString("HH:mm");
+            TimeHomeUK.Text = "LON: " + uktime + ":" + mins;
+            TimeHomeIN.Text = "DEL:" + temp1;
         }
     }
 }

@@ -16553,10 +16553,10 @@ namespace India2022.Droid
 			public const int ic_mtrl_chip_close_circle = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int logoairport4india = 2131165291;
+			public const int indiahomebackround = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int logosky4india = 2131165292;
+			public const int logoairport4india = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
 			public const int material_cursor_drawable = 2131165293;
