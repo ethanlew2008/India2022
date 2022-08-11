@@ -86,6 +86,10 @@
             <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="TimeHomeIN" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1" />
             <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="Connection" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="2" Grid.Column="0" />
             <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="HomeLocalTime" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="2" Grid.Column="1" />
+            <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="BatteryLevel" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="4" Grid.Column="0" />
+            <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="Charging" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="4" Grid.Column="1" />
+            <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="BatterySaver" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="6" Grid.Column="0" />
+            <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="Appversion" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="6" Grid.Column="1" />
 
 
 

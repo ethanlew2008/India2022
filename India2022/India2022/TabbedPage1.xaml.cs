@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using Plugin.Connectivity;
 using static Xamarin.Essentials.Permissions;
+using Battery = Xamarin.Essentials.Battery;
 
 namespace India2022
 {
@@ -25,11 +26,13 @@ namespace India2022
         double co2 = 0;
         double countries = 14;
 
+
         public TabbedPage1()
         {
             InitializeComponent();
             CurrentPage = Children[1];
 
+            
             var indiatime = DateTime.UtcNow.AddMinutes(330);
             indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
             string temp1 = Convert.ToString(indiatime);
@@ -45,12 +48,27 @@ namespace India2022
             if ((CrossConnectivity.Current.IsConnected) && !profiles.Contains(ConnectionProfile.WiFi)) { Connection.Text = "Data On"; }
             else { Connection.Text = "Data Off"; }
 
+            double battcharge = Battery.ChargeLevel;
+            battcharge *= 100;
 
+            string chargin = "";
+            chargin = Battery.PowerSource.ToString();
+            if (chargin == "AC") { chargin = "Wall Plug"; }
+            else if (chargin == "Usb") { chargin = "USB"; }
+
+            string energysave = "";
+            if(Battery.EnergySaverStatus == EnergySaverStatus.On) { energysave = "Battery Saver On"; }
+            else { energysave = "Battery Saver Off"; }
+            
 
 
             HomeLocalTime.Text = "LOC: " + DateTime.Now.ToString("HH:mm");
             TimeHomeUK.Text = "LON: " + uktime + ":" + mins;
             TimeHomeIN.Text = "DEL:" + temp1;
+            Charging.Text = chargin;
+            BatterySaver.Text = energysave;
+            Appversion.Text = AppInfo.VersionString;
+            BatteryLevel.Text = "Batt: " + battcharge + "%";
         }
 
         private void StartFlyButton_Clicked(object sender, EventArgs e)
@@ -125,11 +143,28 @@ namespace India2022
             if ((CrossConnectivity.Current.IsConnected) && !profiles.Contains(ConnectionProfile.WiFi)) { Connection.Text = "Data On"; }
             else { Connection.Text = "Data Off"; }
 
+            string chargin = "";
+
+            chargin = Battery.PowerSource.ToString();
+            if(chargin == "AC") { chargin = "Wall Plug"; }
+            else if(chargin == "Usb") { chargin = "USB"; }
+
             if(uktime >= 24) { uktime -= 24; }
+
+            double battcharge = Battery.ChargeLevel;
+            battcharge *= 100;
+
+            string energysave = "";
+            if (Battery.EnergySaverStatus == EnergySaverStatus.On) { energysave = "Battery Saver On"; }
+            else { energysave = "Battery Saver Off"; }
 
             HomeLocalTime.Text = "LOC: " + DateTime.Now.ToString("HH:mm");
             TimeHomeUK.Text = "LON: " + uktime + ":" + mins;
             TimeHomeIN.Text = "DEL:" + temp1;
+            BatteryLevel.Text = "Batt: " + battcharge + "%";
+            BatterySaver.Text = energysave;
+            Appversion.Text = AppInfo.VersionString;
+            Charging.Text = chargin;
         }
 
         private void FlashButton_Clicked(object sender, EventArgs e)
@@ -141,9 +176,10 @@ namespace India2022
         {
             flash = !flash;
             if (flash) { await Xamarin.Essentials.Flashlight.TurnOffAsync(); }
-            else { await Xamarin.Essentials.Flashlight.TurnOnAsync(); }
-            
+            else { await Xamarin.Essentials.Flashlight.TurnOnAsync(); }       
         }
+
+       
         
     }
 }
