@@ -112,6 +112,7 @@ namespace India2022
             int uktime = DateTime.UtcNow.Hour + 1;
             string mins = Convert.ToString(DateTime.UtcNow.Minute);
             if(mins.Length == 1) { mins = "0" + mins; }
+            if (uktime >= 24) { uktime -= 24; }
 
             Time.Text += workHours;
             Percentage.Text = percentage + "% Left";          
@@ -119,6 +120,7 @@ namespace India2022
             LocalTime.Text = DateTime.Now.ToString("HH:mm") + " Local";
             TimeIn.Text = "IN:" + temp1;
             TimeUK.Text = "UK: " + uktime + ":" + mins;
+
             if(co2 >= 100) { co2 /= 1000; co2 = Math.Round(co2, 2); CO2.Text = co2 + "T CO2"; }
             else { co2 = Math.Ceiling(co2); CO2.Text = co2 + "KG CO2"; }
 
