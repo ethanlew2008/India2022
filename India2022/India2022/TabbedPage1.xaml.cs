@@ -25,6 +25,7 @@ namespace India2022
         Stopwatch flighttime = new Stopwatch();
         double co2 = 0;
         double countries = 14;
+        string input = "";
 
 
         public TabbedPage1()
@@ -181,7 +182,116 @@ namespace India2022
             else { await Xamarin.Essentials.Flashlight.TurnOnAsync(); }       
         }
 
-       
-        
+        private void Button1_Clicked(object sender, EventArgs e)
+        {
+            input += "1";
+            Box.Text = input;
+        }
+
+        private void Button2_Clicked(object sender, EventArgs e)
+        {
+            input += "2";
+            Box.Text = input;
+        }
+
+        private void Button3_Clicked(object sender, EventArgs e)
+        {
+            input += "3";
+            Box.Text = input;
+        }
+
+        private void Button4_Clicked(object sender, EventArgs e)
+        {
+            input += "4";
+            Box.Text = input;
+        }
+
+        private void Button5_Clicked(object sender, EventArgs e)
+        {
+            input += "5";
+            Box.Text = input;
+        }
+
+        private void Button6_Clicked(object sender, EventArgs e)
+        {
+            input += "6";
+            Box.Text = input;
+        }
+
+        private void Button7_Clicked(object sender, EventArgs e)
+        {
+            input += "7";
+            Box.Text = input;
+        }
+
+        private void Button8_Clicked(object sender, EventArgs e)
+        {
+            input += "8";
+            Box.Text = input;
+        }
+
+        private void Button9_Clicked(object sender, EventArgs e)
+        {
+            input += "9";
+            Box.Text = input;
+        }
+
+        private void Button0_Clicked(object sender, EventArgs e)
+        {
+            input += "0";
+            Box.Text = input;
+        }
+
+        private void Buttondel_Clicked(object sender, EventArgs e)
+        {
+            string ostr = "";
+            try { ostr = input.Remove(input.Length - 1, 1); } catch (Exception) { return; }
+            input = ostr; Box.Text = input;
+        }
+
+        private void ButtonDot_Clicked(object sender, EventArgs e)
+        {
+            input += ".";
+            Box.Text = input;
+        }
+
+        private void ButtonGBP_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                double conversion = Convert.ToDouble(input) / 96.68;
+                int temp = Convert.ToInt32(conversion);
+                conversion = Math.Round(conversion, 2);
+                Box.Text = "£" + conversion;
+                input = "";
+            }
+            catch (Exception) { Box.Text = "Error"; input = ""; return;}
+        }
+
+        private void ButtonUSD_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                double conversion = Convert.ToDouble(input) / 79.63;
+                int temp = Convert.ToInt32(conversion);
+                conversion = Math.Round(conversion, 2);
+                Box.Text = "$" + conversion;
+                input = "";
+            }
+            catch (Exception) { Box.Text = "Error"; input = ""; return; }
+        }
+
+        private void ButtonEUR_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                double conversion = Convert.ToDouble(input) / 81.72;
+                int temp = Convert.ToInt32(conversion);
+                conversion = Math.Round(conversion, 2);
+                Box.Text = "€" + conversion;
+                input = "";
+            }
+            catch (Exception) { Box.Text = "Error"; input = ""; return; }
+        }
     }
 }
