@@ -170,8 +170,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="9" Grid.Column="0" Text="Start" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" CornerRadius="20" x:Name="Startsleep" Clicked="Startsleep_Clicked"/>
-            <Button Grid.Row="9" Grid.Column="1" Text="Update" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" CornerRadius="20" x:Name="Updatesleep" Clicked="Updatesleep_Clicked" Opacity="0"/>
+            <Button Grid.Row="9" Grid.Column="0" Text="Start" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" x:Name="Startsleep" Clicked="Startsleep_Clicked"/>
+            <Button Grid.Row="9" Grid.Column="1" Text="Update" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" x:Name="Updatesleep" Clicked="Updatesleep_Clicked" Opacity="0"/>
 
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="SleepTime" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="0" />
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="SleepBreaths" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1" />
