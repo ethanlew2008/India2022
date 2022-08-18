@@ -23,6 +23,7 @@ namespace India2022
         bool flight = false;
         static bool flash = true;
         Stopwatch flighttime = new Stopwatch();
+        Stopwatch sleep = new Stopwatch(); double sleephours = 0;
         double co2 = 0;
         double countries = 14;
         string input = "";
@@ -259,7 +260,7 @@ namespace India2022
         {
             try
             {
-                double conversion = Convert.ToDouble(input) / 96.68;
+                double conversion = Convert.ToDouble(input) / 95.62;
                 int temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 Box.Text = "£" + conversion;
@@ -292,6 +293,121 @@ namespace India2022
                 input = "";
             }
             catch (Exception) { Box.Text = "Error"; input = ""; return; }
+        }
+
+        private void Startsleep_Clicked(object sender, EventArgs e)
+        {
+
+
+            input = "";
+            if (!sleep.IsRunning)
+            { 
+                sleep.Start();
+                Startsleep.Text = "End";
+                Updatesleep.Opacity = 1;
+
+
+                sleephours = sleep.ElapsedMilliseconds / 1000; sleephours /= 60;
+
+                TimeSpan spWorkMin = TimeSpan.FromMinutes(sleephours);
+                string workHours = spWorkMin.ToString(@"hh\:mm");
+
+                var indiatime = DateTime.UtcNow.AddMinutes(330);
+                indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
+                string temp1 = Convert.ToString(indiatime);
+                temp1 = temp1.Substring(10);
+                temp1 = temp1.Remove(temp1.Length - 3, 3);
+
+                int uktime = DateTime.UtcNow.Hour + 1;
+                string mins = Convert.ToString(DateTime.UtcNow.Minute);
+                if (mins.Length == 1) { mins = "0" + mins; }
+
+                double elapsedtime = sleep.ElapsedMilliseconds; elapsedtime /= 1000; elapsedtime /= 60;
+                double percentage = elapsedtime /= 480;
+                percentage = Math.Ceiling(percentage);
+
+
+                double battcharge = Battery.ChargeLevel;
+                battcharge *= 100;
+
+                string energysave = "";
+                if (Battery.EnergySaverStatus == EnergySaverStatus.On) { energysave = "Battery Saver On"; }
+                else { energysave = "Battery Saver Off"; }
+
+
+
+
+                SleepPercentOfTarget.Text = percentage + "%";
+                SleepTime.Text = workHours;
+                SleepBreaths.Text = Convert.ToInt32(sleephours * 16) + " Breaths";
+                BattPersleep.Text = "Batt:" + battcharge + "%";
+                IndiaLocal.Text = temp1 + ":" + mins;
+                GBRLocal.Text = uktime + ":" + mins;
+                BatterySaver1.Text = energysave;
+                Appversion1.Text = AppInfo.VersionString;
+
+            }
+            else { sleep.Stop(); Startsleep.Text = "Sleep"; Updatesleep.Opacity = 0; }
+
+        }
+
+        private void Updatesleep_Clicked(object sender, EventArgs e)
+        {
+
+            if (sleep.IsRunning)
+            {
+                sleephours = sleep.ElapsedMilliseconds / 1000; sleephours /= 60;
+
+                TimeSpan spWorkMin = TimeSpan.FromMinutes(sleephours);
+                string workHours = spWorkMin.ToString(@"hh\:mm");
+
+                var indiatime = DateTime.UtcNow.AddMinutes(330);
+                indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
+                string temp1 = Convert.ToString(indiatime);
+                temp1 = temp1.Substring(10);
+                temp1 = temp1.Remove(temp1.Length - 3, 3);
+
+                int uktime = DateTime.UtcNow.Hour + 1;
+                string mins = Convert.ToString(DateTime.UtcNow.Minute);
+                if (mins.Length == 1) { mins = "0" + mins; }
+
+                double elapsedtime = sleep.ElapsedMilliseconds; elapsedtime /= 1000; elapsedtime /= 60;
+                double percentage = elapsedtime /= 480;
+                percentage = Math.Ceiling(percentage);
+
+
+                double battcharge = Battery.ChargeLevel;
+                battcharge *= 100;
+
+                string energysave = "";
+                if (Battery.EnergySaverStatus == EnergySaverStatus.On) { energysave = "Battery Saver On"; }
+                else { energysave = "Battery Saver Off"; }
+
+
+
+
+                SleepPercentOfTarget.Text = percentage + "%";
+                SleepTime.Text = workHours;
+                SleepBreaths.Text = Convert.ToInt32(sleephours * 16) + " Breaths";
+                BattPersleep.Text = "Batt:" + battcharge + "%";
+                IndiaLocal.Text = temp1 + ":" + mins;
+                GBRLocal.Text = uktime + ":" + mins;
+                BatterySaver1.Text = energysave;
+                Appversion1.Text = AppInfo.VersionString;
+
+            }
+            else
+            {
+                return;
+            }
+
+
+
+
+
+
+
+
         }
     }
 }

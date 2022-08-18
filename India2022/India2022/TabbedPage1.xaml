@@ -64,7 +64,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Text="Update" x:Name="UpdateButtonHome" Clicked="UpdateButtonHome_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1"/>
+            <Button Text="Update" x:Name="UpdateButtonHome" Clicked="UpdateButtonHome_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1" Opacity="1"/>
             <Button Text="Flash" x:Name="FlashButton" Clicked="FlashButton_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1"/>
             <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="TimeHomeUK" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="0" />
             <Label Text="Hi" FontSize="Title" FontAttributes="Bold" x:Name="TimeHomeIN" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1" />
@@ -87,11 +87,72 @@
 
 
 
-    <ContentPage Title="Currency" BackgroundColor="White">
+    <ContentPage Title="Currency" BackgroundImageSource="indiamoney.png">
 
+
+        <StackLayout>
+
+            <Label Text="" FontSize="Title" Margin="0,50,0,50" x:Name="Box" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black"/>
+
+
+            <Grid Margin="50,0,50,100" VerticalOptions="EndAndExpand">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+
+
+
+
+                <Button Grid.Row="0" Grid.Column="0" Text="1" x:Name="Button1" Clicked="Button1_Clicked" CornerRadius="20" BackgroundColor="DarkOrange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="0" Grid.Column="1" Text="2" x:Name="Button2" Clicked="Button2_Clicked" CornerRadius="20" BackgroundColor="DarkOrange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="0" Grid.Column="2" Text="3" x:Name="Button3" Clicked="Button3_Clicked" CornerRadius="20" BackgroundColor="DarkOrange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+
+                <Button Grid.Row="1" Grid.Column="0" Text="4" x:Name="Button4" Clicked="Button4_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="1" Grid.Column="1" Text="5" x:Name="Button5" Clicked="Button5_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="1" Grid.Column="2" Text="6" x:Name="Button6" Clicked="Button6_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+
+                <Button Grid.Row="2" Grid.Column="0" Text="7" x:Name="Button7" Clicked="Button7_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="2" Grid.Column="1" Text="8" x:Name="Button8" Clicked="Button8_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="2" Grid.Column="2" Text="9" x:Name="Button9" Clicked="Button9_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+
+                <Button Grid.Row="3" Grid.Column="0" Text="." x:Name="ButtonDot" Clicked="ButtonDot_Clicked" CornerRadius="20" BackgroundColor="Green" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="3" Grid.Column="1" Text="0" x:Name="Button0" Clicked="Button0_Clicked" CornerRadius="20" BackgroundColor="Green" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="3" Grid.Column="2" Text="del" x:Name="Buttondel" Clicked="Buttondel_Clicked" CornerRadius="20" BackgroundColor="Green" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+
+                <Button Grid.Row="5" Grid.Column="0" Text="GBP" x:Name="ButtonGBP" Clicked="ButtonGBP_Clicked" CornerRadius="20" BackgroundColor="Orange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="5" Grid.Column="1" Text="USD" x:Name="ButtonUSD" Clicked="ButtonUSD_Clicked" CornerRadius="20" BackgroundColor="Orange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+                <Button Grid.Row="5" Grid.Column="2" Text="EUR" x:Name="ButtonEUR" Clicked="ButtonEUR_Clicked" CornerRadius="20" BackgroundColor="Orange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
+
+
+
+
+
+
+
+
+
+            </Grid>
+        </StackLayout>
+
+    </ContentPage>
+
+    <ContentPage Title="Sleep" BackgroundImageSource="indianightbackround.png">
         <Grid Margin="50,0,50,100" VerticalOptions="EndAndExpand">
-
-
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -101,40 +162,25 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Button Grid.Row="9" Grid.Column="0" Text="Start" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" CornerRadius="20" x:Name="Startsleep" Clicked="Startsleep_Clicked"/>
+            <Button Grid.Row="9" Grid.Column="1" Text="Update" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" CornerRadius="20" x:Name="Updatesleep" Clicked="Updatesleep_Clicked" Opacity="0"/>
 
-            <Label Text="" FontSize="Title" x:Name="Box" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1"/>
-
-
-            <Button Grid.Row="3" Grid.Column="0" Text="1" x:Name="Button1" Clicked="Button1_Clicked" CornerRadius="20" BackgroundColor="DarkOrange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="3" Grid.Column="1" Text="2" x:Name="Button2" Clicked="Button2_Clicked" CornerRadius="20" BackgroundColor="DarkOrange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="3" Grid.Column="2" Text="3" x:Name="Button3" Clicked="Button3_Clicked" CornerRadius="20" BackgroundColor="DarkOrange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-
-            <Button Grid.Row="4" Grid.Column="0" Text="4" x:Name="Button4" Clicked="Button4_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="4" Grid.Column="1" Text="5" x:Name="Button5" Clicked="Button5_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="4" Grid.Column="2" Text="6" x:Name="Button6" Clicked="Button6_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            
-            <Button Grid.Row="5" Grid.Column="0" Text="7" x:Name="Button7" Clicked="Button7_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="5" Grid.Column="1" Text="8" x:Name="Button8" Clicked="Button8_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="5" Grid.Column="2" Text="9" x:Name="Button9" Clicked="Button9_Clicked" CornerRadius="20" BackgroundColor="White" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-
-            <Button Grid.Row="6" Grid.Column="0" Text="." x:Name="ButtonDot" Clicked="ButtonDot_Clicked" CornerRadius="20" BackgroundColor="Green" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="6" Grid.Column="1" Text="0" x:Name="Button0" Clicked="Button0_Clicked" CornerRadius="20" BackgroundColor="Green" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="6" Grid.Column="2" Text="del" x:Name="Buttondel" Clicked="Buttondel_Clicked" CornerRadius="20" BackgroundColor="Green" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-
-            <Button Grid.Row="8" Grid.Column="0" Text="GBP" x:Name="ButtonGBP" Clicked="ButtonGBP_Clicked" CornerRadius="20" BackgroundColor="Orange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="8" Grid.Column="1" Text="USD" x:Name="ButtonUSD" Clicked="ButtonUSD_Clicked" CornerRadius="20" BackgroundColor="Orange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-            <Button Grid.Row="8" Grid.Column="2" Text="EUR" x:Name="ButtonEUR" Clicked="ButtonEUR_Clicked" CornerRadius="20" BackgroundColor="Orange" BorderColor="Black"  BorderWidth="1" TextColor="Black"/>
-
-
-
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="SleepTime" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="0" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="SleepBreaths" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="SleepPercentOfTarget" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="2" Grid.Column="0" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="BattPersleep" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="2" Grid.Column="1" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="IndiaLocal" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="4" Grid.Column="0" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="GBRLocal" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="4" Grid.Column="1" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="BatterySaver1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="6" Grid.Column="0" />
+            <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="Appversion1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="6" Grid.Column="1" />
 
 
 
