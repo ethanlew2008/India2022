@@ -14,9 +14,6 @@ using Battery = Xamarin.Essentials.Battery;
 
 namespace India2022
 {
-
-    
-
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TabbedPage1 : TabbedPage
     {
@@ -29,12 +26,14 @@ namespace India2022
         string input = "";
 
 
+
+
         public TabbedPage1()
         {
             InitializeComponent();
             CurrentPage = Children[1];
 
-            
+
             var indiatime = DateTime.UtcNow.AddMinutes(330);
             indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
             string temp1 = Convert.ToString(indiatime);
@@ -59,9 +58,9 @@ namespace India2022
             else if (chargin == "Usb") { chargin = "USB"; }
 
             string energysave = "";
-            if(Battery.EnergySaverStatus == EnergySaverStatus.On) { energysave = "Battery Saver On"; }
+            if (Battery.EnergySaverStatus == EnergySaverStatus.On) { energysave = "Battery Saver On"; }
             else { energysave = "Battery Saver Off"; }
-            
+
 
 
             HomeLocalTime.Text = "LOC: " + DateTime.Now.ToString("HH:mm");
@@ -75,8 +74,8 @@ namespace India2022
 
         private void StartFlyButton_Clicked(object sender, EventArgs e)
         {
-            if (!flight) { flighttime.Start();  flight = true; UpdateFlyButton.Opacity = 1; StartFlyButton.Text = "Stop"; }
-            else { flight = false; flighttime.Reset(); UpdateFlyButton.Opacity = 0;  StartFlyButton.Text = "Start"; }
+            if (!flight) { flighttime.Start(); flight = true; UpdateFlyButton.Opacity = 1; StartFlyButton.Text = "Stop"; }
+            else { flight = false; flighttime.Reset(); UpdateFlyButton.Opacity = 0; StartFlyButton.Text = "Start"; }
         }
 
         private void UpdateFlyButton_Clicked(object sender, EventArgs e)
@@ -90,7 +89,7 @@ namespace India2022
             double percentage = Convert.ToDouble(flighttime.ElapsedMilliseconds) / 3.15e+7; percentage *= 100; percentage = 100 - percentage;
             percentage = Convert.ToInt32(percentage);
 
-            co2 = flighttime.ElapsedMilliseconds; co2 /= 1000; co2/= 60; co2 *= 4;
+            co2 = flighttime.ElapsedMilliseconds; co2 /= 1000; co2 /= 60; co2 *= 4;
 
             countries = flighttime.ElapsedMilliseconds / 1000; countries /= 60;
             countries /= 38;
@@ -102,8 +101,10 @@ namespace India2022
                 countries *= -1;
             }
 
-            if (CrossConnectivity.Current.IsConnected) { BatteryPer.Text = "AirMode: Yes"; }
+            if (CrossConnectivity.Current.IsConnected) { Airmode.Text = "AirMode: Yes"; }
             else { Connection.Text = "AirMode: No"; }
+
+            
 
             var indiatime = DateTime.UtcNow.AddMinutes(330);
             indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
@@ -113,17 +114,19 @@ namespace India2022
 
             int uktime = DateTime.UtcNow.Hour + 1;
             string mins = Convert.ToString(DateTime.UtcNow.Minute);
-            if(mins.Length == 1) { mins = "0" + mins; }
+            if (mins.Length == 1) { mins = "0" + mins; }
             if (uktime >= 24) { uktime -= 24; }
 
             Time.Text += workHours;
-            Percentage.Text = percentage + "% Left";          
+            Percentage.Text = percentage + "% Left";
             CountriesFlew.Text = countries + " Countries";
             LocalTime.Text = DateTime.Now.ToString("HH:mm") + " Local";
             TimeIn.Text = "IN:" + temp1;
             TimeUK.Text = "UK: " + uktime + ":" + mins;
+            Alt();
+            Speed();
 
-            if(co2 >= 100) { co2 /= 1000; co2 = Math.Round(co2, 2); CO2.Text = co2 + "T CO2"; }
+            if (co2 >= 100) { co2 /= 1000; co2 = Math.Round(co2, 2); CO2.Text = co2 + "T CO2"; }
             else { co2 = Math.Ceiling(co2); CO2.Text = co2 + "KG CO2"; }
 
 
@@ -143,17 +146,17 @@ namespace India2022
 
 
             var profiles = Connectivity.ConnectionProfiles;
-            
+
             if ((CrossConnectivity.Current.IsConnected) && !profiles.Contains(ConnectionProfile.WiFi)) { Connection.Text = "Data On"; }
             else { Connection.Text = "Data Off"; }
 
             string chargin = "";
 
             chargin = Battery.PowerSource.ToString();
-            if(chargin == "AC") { chargin = "Wall Plug"; }
-            else if(chargin == "Usb") { chargin = "USB"; }
+            if (chargin == "AC") { chargin = "Wall Plug"; }
+            else if (chargin == "Usb") { chargin = "USB"; }
 
-            if(uktime >= 24) { uktime -= 24; }
+            if (uktime >= 24) { uktime -= 24; }
 
             double battcharge = Battery.ChargeLevel;
             battcharge *= 100;
@@ -173,182 +176,64 @@ namespace India2022
 
         private void FlashButton_Clicked(object sender, EventArgs e)
         {
-            FLash2Async();
-        }
-
-        static async Task FLash2Async()
-        {
-            flash = !flash;
-            if (flash) { await Xamarin.Essentials.Flashlight.TurnOffAsync(); }
-            else { await Xamarin.Essentials.Flashlight.TurnOnAsync(); }       
-        }
-
-        private void Button1_Clicked(object sender, EventArgs e)
-        {
-            input += "1";
-            Box.Text = input;
-        }
-
-        private void Button2_Clicked(object sender, EventArgs e)
-        {
-            input += "2";
-            Box.Text = input;
-        }
-
-        private void Button3_Clicked(object sender, EventArgs e)
-        {
-            input += "3";
-            Box.Text = input;
-        }
-
-        private void Button4_Clicked(object sender, EventArgs e)
-        {
-            input += "4";
-            Box.Text = input;
-        }
-
-        private void Button5_Clicked(object sender, EventArgs e)
-        {
-            input += "5";
-            Box.Text = input;
-        }
-
-        private void Button6_Clicked(object sender, EventArgs e)
-        {
-            input += "6";
-            Box.Text = input;
-        }
-
-        private void Button7_Clicked(object sender, EventArgs e)
-        {
-            input += "7";
-            Box.Text = input;
-        }
-
-        private void Button8_Clicked(object sender, EventArgs e)
-        {
-            input += "8";
-            Box.Text = input;
-        }
-
-        private void Button9_Clicked(object sender, EventArgs e)
-        {
-            input += "9";
-            Box.Text = input;
-        }
-
-        private void Button0_Clicked(object sender, EventArgs e)
-        {
-            input += "0";
-            Box.Text = input;
-        }
-
-        private void Buttondel_Clicked(object sender, EventArgs e)
-        {
-            string ostr = "";
-            try { ostr = input.Remove(input.Length - 1, 1); } catch (Exception) { return; }
-            input = ostr; Box.Text = input;
-        }
-
-        private void ButtonDot_Clicked(object sender, EventArgs e)
-        {
-            input += ".";
-            Box.Text = input;
-        }
-
-        private void ButtonGBP_Clicked(object sender, EventArgs e)
-        {
             try
             {
-                double conversion = Convert.ToDouble(input) / 95.62;
+                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 79.52;
                 int temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
-                Box.Text = "£" + conversion;
-                input = "";
+                CurrencyUSD.Text = "$" + conversion;
+
+
+                conversion = Convert.ToDouble(CurrencyGBP.Text) / 92.42;
+                temp = Convert.ToInt32(conversion);
+                conversion = Math.Round(conversion, 2);
+                CurrencyGBP.Text = "£" + conversion;
+
             }
-            catch (Exception) { Box.Text = "Error"; input = ""; return;}
+            catch (Exception) { CurrencyGBP.Text = "Error"; CurrencyUSD.Text = "Error";  input = ""; return; }
+
         }
 
-        private void ButtonUSD_Clicked(object sender, EventArgs e)
+        public async void Alt()
         {
+            Altbx.Text = "";
             try
             {
-                double conversion = Convert.ToDouble(input) / 79.63;
-                int temp = Convert.ToInt32(conversion);
-                conversion = Math.Round(conversion, 2);
-                Box.Text = "$" + conversion;
-                input = "";
+                
+                var location = await Geolocation.GetLastKnownLocationAsync();
+                double temp = Convert.ToDouble(location.Altitude);
+                temp *= 3.2808399;
+                int temp2 = Convert.ToInt32(temp);
+                if (location != null)
+                {
+                    Altbx.Text += temp2 + "ft";
+                }
             }
-            catch (Exception) { Box.Text = "Error"; input = ""; return; }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
-        private void ButtonEUR_Clicked(object sender, EventArgs e)
+        public async void Speed()
         {
+            SpdBx.Text = "";
             try
             {
-                double conversion = Convert.ToDouble(input) / 81.72;
-                int temp = Convert.ToInt32(conversion);
-                conversion = Math.Round(conversion, 2);
-                Box.Text = "€" + conversion;
-                input = "";
+                var location = await Geolocation.GetLastKnownLocationAsync();
+                double temp = Convert.ToDouble(location.Speed);
+                temp *= 2.23693629;
+                int temp2 = Convert.ToInt32(temp);
+
+                if (location != null)
+                {
+                    SpdBx.Text += temp2 + "MPH";
+                }
             }
-            catch (Exception) { Box.Text = "Error"; input = ""; return; }
-        }
-
-        private void Startsleep_Clicked(object sender, EventArgs e)
-        {
-
-
-            input = "";
-            if (!sleep.IsRunning)
-            { 
-                sleep.Start();
-                Startsleep.Text = "End";
-                Updatesleep.Opacity = 1;
-
-
-                sleephours = sleep.ElapsedMilliseconds / 1000; sleephours /= 60;
-
-                TimeSpan spWorkMin = TimeSpan.FromMinutes(sleephours);
-                string workHours = spWorkMin.ToString(@"hh\:mm");
-
-                var indiatime = DateTime.UtcNow.AddMinutes(330);
-                indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
-                string temp1 = Convert.ToString(indiatime);
-                temp1 = temp1.Substring(10);
-                temp1 = temp1.Remove(temp1.Length - 3, 3);
-
-                int uktime = DateTime.UtcNow.Hour + 1;
-                string mins = Convert.ToString(DateTime.UtcNow.Minute);
-                if (mins.Length == 1) { mins = "0" + mins; }
-
-                double elapsedtime = sleep.ElapsedMilliseconds; elapsedtime /= 1000; elapsedtime /= 60;
-                double percentage = elapsedtime /= 480;
-                percentage = Math.Ceiling(percentage);
-
-
-                double battcharge = Battery.ChargeLevel;
-                battcharge *= 100;
-
-                string energysave = "";
-                if (Battery.EnergySaverStatus == EnergySaverStatus.On) { energysave = "Battery Saver On"; }
-                else { energysave = "Battery Saver Off"; }
-
-
-
-
-                SleepPercentOfTarget.Text = percentage + "%";
-                SleepTime.Text = workHours;
-                SleepBreaths.Text = Convert.ToInt32(sleephours * 16) + " Breaths";
-                BattPersleep.Text = "Batt:" + battcharge + "%";
-                IndiaLocal.Text = temp1 + ":" + mins;
-                GBRLocal.Text = uktime + ":" + mins;
-                BatterySaver1.Text = energysave;
-                Appversion1.Text = AppInfo.VersionString;
+            catch (Exception)
+            {
 
             }
-            else { sleep.Stop(); Startsleep.Text = "Sleep"; Updatesleep.Opacity = 0; }
-
         }
 
         private void Updatesleep_Clicked(object sender, EventArgs e)
@@ -384,14 +269,14 @@ namespace India2022
                 else { energysave = "Battery Saver Off"; }
 
 
-
-
                 SleepPercentOfTarget.Text = percentage + "%";
                 SleepTime.Text = workHours;
                 SleepBreaths.Text = Convert.ToInt32(sleephours * 16) + " Breaths";
                 BattPersleep.Text = "Batt:" + battcharge + "%";
-                IndiaLocal.Text = temp1 + ":" + mins;
-                GBRLocal.Text = uktime + ":" + mins;
+
+                GBRLocal.Text = "LON: " + uktime + ":" + mins;
+                IndiaLocal.Text = "DEL:" + temp1;     
+                
                 BatterySaver1.Text = energysave;
                 Appversion1.Text = AppInfo.VersionString;
 
@@ -400,14 +285,12 @@ namespace India2022
             {
                 return;
             }
+        }
 
-
-
-
-
-
-
-
+        private void Startsleep_Clicked(object sender, EventArgs e)
+        {
+            if (sleep.IsRunning) { sleep.Stop(); Startsleep.Text = "Sleep"; Updatesleep.Opacity = 0; }
+            else { sleep.Start(); Startsleep.Text = "End"; Updatesleep.Opacity = 1; }
         }
     }
 }
