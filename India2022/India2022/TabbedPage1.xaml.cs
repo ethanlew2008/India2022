@@ -178,13 +178,13 @@ namespace India2022
         {
             try
             {
-                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 79.52;
+                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 79.49;
                 int temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyUSD.Text = "$" + conversion;
 
 
-                conversion = Convert.ToDouble(CurrencyGBP.Text) / 92.42;
+                conversion = Convert.ToDouble(CurrencyGBP.Text) / 91.92;
                 temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyGBP.Text = "£" + conversion;

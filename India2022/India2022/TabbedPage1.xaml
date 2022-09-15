@@ -64,8 +64,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Text="Update" x:Name="UpdateButtonHome" Clicked="UpdateButtonHome_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1" Opacity="1"/>
-            <Button Text="Convert" x:Name="FlashButton" Clicked="FlashButton_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1"/>
+            <Button Text="Update" x:Name="UpdateButtonHome" Clicked="UpdateButtonHome_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1" Opacity="1"/>
+            <Button Text="Convert" x:Name="FlashButton" Clicked="FlashButton_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1"/>
             
             
             
