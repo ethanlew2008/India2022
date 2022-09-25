@@ -178,13 +178,13 @@ namespace India2022
         {
             try
             {
-                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 79.49;
+                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 81.26;
                 int temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyUSD.Text = "$" + conversion;
 
 
-                conversion = Convert.ToDouble(CurrencyGBP.Text) / 91.92;
+                conversion = Convert.ToDouble(CurrencyGBP.Text) / 88.23;
                 temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyGBP.Text = "£" + conversion;
@@ -272,7 +272,7 @@ namespace India2022
                 SleepPercentOfTarget.Text = percentage + "%";
                 SleepTime.Text = workHours;
                 SleepBreaths.Text = Convert.ToInt32(sleephours * 16) + " Breaths";
-                BattPersleep.Text = "Batt:" + battcharge + "%";
+                BattPersleep.Text = "Batt: " + battcharge + "%";
 
                 GBRLocal.Text = "LON: " + uktime + ":" + mins;
                 IndiaLocal.Text = "DEL:" + temp1;     
