@@ -32,7 +32,7 @@ namespace India2022
         {
             InitializeComponent();
             CurrentPage = Children[1];
-
+            
 
             var indiatime = DateTime.UtcNow.AddMinutes(330);
             indiatime = Convert.ToDateTime(indiatime.ToString("HH:mm"));
@@ -59,9 +59,7 @@ namespace India2022
 
             string energysave = "";
             if (Battery.EnergySaverStatus == EnergySaverStatus.On) { energysave = "Battery Saver On"; }
-            else { energysave = "Battery Saver Off"; }
-
-
+            else { energysave = "Battery Saver Off"; }          
 
             HomeLocalTime.Text = "LOC: " + DateTime.Now.ToString("HH:mm");
             TimeHomeUK.Text = "LON: " + uktime + ":" + mins;
@@ -178,13 +176,13 @@ namespace India2022
         {
             try
             {
-                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 81.26;
+                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 82.19;
                 int temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyUSD.Text = "$" + conversion;
 
 
-                conversion = Convert.ToDouble(CurrencyGBP.Text) / 88.23;
+                conversion = Convert.ToDouble(CurrencyGBP.Text) / 91.20;
                 temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyGBP.Text = "£" + conversion;
@@ -290,7 +288,8 @@ namespace India2022
         private void Startsleep_Clicked(object sender, EventArgs e)
         {
             if (sleep.IsRunning) { sleep.Stop(); Startsleep.Text = "Sleep"; Updatesleep.Opacity = 0; }
-            else { sleep.Start(); Startsleep.Text = "End"; Updatesleep.Opacity = 1; }
+            else { sleep.Start(); Startsleep.Text = "End"; Updatesleep.Opacity = 1; BarBackgroundColor = Color.MediumPurple; }
+            
         }
     }
 }

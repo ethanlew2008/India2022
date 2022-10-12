@@ -10,7 +10,7 @@ namespace India2022
         {
             InitializeComponent();
 
-            MainPage = new TabbedPage1();
+            MainPage = new TabbedPage1() { BarBackgroundColor = Color.Orange};
         }
 
         protected override void OnStart()
