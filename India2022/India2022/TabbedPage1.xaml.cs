@@ -176,13 +176,13 @@ namespace India2022
         {
             try
             {
-                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 82.19;
+                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 82.15;
                 int temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyUSD.Text = "$" + conversion;
 
 
-                conversion = Convert.ToDouble(CurrencyGBP.Text) / 91.20;
+                conversion = Convert.ToDouble(CurrencyGBP.Text) / 92.94;
                 temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyGBP.Text = "£" + conversion;
@@ -287,7 +287,7 @@ namespace India2022
 
         private void Startsleep_Clicked(object sender, EventArgs e)
         {
-            if (sleep.IsRunning) { sleep.Stop(); Startsleep.Text = "Sleep"; Updatesleep.Opacity = 0; }
+            if (sleep.IsRunning) { sleep.Stop(); Startsleep.Text = "Sleep"; Updatesleep.Opacity = 0; BarBackgroundColor = Color.Orange; }
             else { sleep.Start(); Startsleep.Text = "End"; Updatesleep.Opacity = 1; BarBackgroundColor = Color.MediumPurple; }
             
         }
