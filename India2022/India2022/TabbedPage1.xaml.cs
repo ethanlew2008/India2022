@@ -176,13 +176,13 @@ namespace India2022
         {
             try
             {
-                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 82.15;
+                double conversion = Convert.ToDouble(CurrencyGBP.Text) / 82.35;
                 int temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyUSD.Text = "$" + conversion;
 
 
-                conversion = Convert.ToDouble(CurrencyGBP.Text) / 92.94;
+                conversion = Convert.ToDouble(CurrencyGBP.Text) / 92.01;
                 temp = Convert.ToInt32(conversion);
                 conversion = Math.Round(conversion, 2);
                 CurrencyGBP.Text = "£" + conversion;
@@ -287,9 +287,27 @@ namespace India2022
 
         private void Startsleep_Clicked(object sender, EventArgs e)
         {
-            if (sleep.IsRunning) { sleep.Stop(); Startsleep.Text = "Sleep"; Updatesleep.Opacity = 0; BarBackgroundColor = Color.Orange; }
-            else { sleep.Start(); Startsleep.Text = "End"; Updatesleep.Opacity = 1; BarBackgroundColor = Color.MediumPurple; }
-            
+            if (sleep.IsRunning) 
+            {
+                sleep.Stop();
+                Startsleep.Text = "Sleep";
+                Updatesleep.Opacity = 0;
+                BarBackgroundColor = Color.Orange;
+                FlightPage.IconImageSource = "IndiaPlaneIcon.jpg";
+                IndiaHome.IconImageSource = "IndiaHouseIcon.jpg";
+                IndiaSleep.IconImageSource = "IndiaSleepIcon.jpg";
+
+            }
+            else
+            {
+                sleep.Start();
+                Startsleep.Text = "End";
+                Updatesleep.Opacity = 1;
+                BarBackgroundColor = Color.MediumPurple;
+                FlightPage.IconImageSource = "IndiaPlaneIconNight.jpg";
+                IndiaHome.IconImageSource = "IndiaHouseIconNight.jpg";
+                IndiaSleep.IconImageSource = "IndiaSleepIconNight.jpg";
+            }    
         }
     }
 }

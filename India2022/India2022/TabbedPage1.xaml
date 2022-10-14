@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            SelectedTabColor="Black"
-            xmlns:anroid="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
-             x:Class="India2022.TabbedPage1">
+            xmlns:anroid="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="India2022.TabbedPage1"
+            >
+               
     <!--Pages can be added as references or inline-->
-    <ContentPage Title="Flight" BackgroundImageSource="logoairport4india.png">
+    <ContentPage BackgroundImageSource="logoairport4india.png" IconImageSource="IndiaPlaneIcon.jpg" x:Name="FlightPage">
 
         <Grid Margin="50,0,50,100" VerticalOptions="EndAndExpand">
             <Grid.RowDefinitions>
@@ -46,7 +47,7 @@
 
 
 
-    <ContentPage Title="Home" BackgroundImageSource="indiahomebackround.png" >
+    <ContentPage BackgroundImageSource="indiahomebackround.png" IconImageSource="IndiaHouseIcon.jpg" x:Name="IndiaHome" >
         <Grid Margin="50,0,50,100" VerticalOptions="EndAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -85,7 +86,7 @@
 
 
 
-    <ContentPage Title="Sleep" BackgroundImageSource="indianightbackround.png">
+    <ContentPage BackgroundImageSource="indianightbackround.png" IconImageSource="IndiaSleepIcon.jpg" x:Name="IndiaSleep">
         <Grid Margin="50,0,50,100" VerticalOptions="EndAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition/>
