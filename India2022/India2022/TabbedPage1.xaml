@@ -6,7 +6,7 @@
             >
                
     <!--Pages can be added as references or inline-->
-    <ContentPage BackgroundImageSource="logoairport4india.png" IconImageSource="IndiaPlaneIcon.jpg" x:Name="FlightPage">
+    <ContentPage BackgroundImageSource="logoairport4india.png" IconImageSource="IndiaPlaneIcon.jpg" x:Name="FlightPage"> 
 
         <Grid Margin="50,0,50,100" VerticalOptions="EndAndExpand">
             <Grid.RowDefinitions>
@@ -39,8 +39,8 @@
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="Altbx" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Green" Grid.Row="8" Grid.Column="0"/>
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="SpdBx" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Green" Grid.Row="8" Grid.Column="1"/>
 
-            <Button Text="Start" x:Name="StartFlyButton" Clicked="StartFlyButton_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1"/>
-            <Button Text="Update" x:Name="UpdateFlyButton" Clicked="UpdateFlyButton_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1" Opacity="0"/>
+            <Button Text="Start" x:Name="StartFlyButton" Clicked="StartFlyButton_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1" CornerRadius="20"/>
+            <ImageButton Source="IndiaReloadIcon" x:Name="UpdateFlyButton" Clicked="UpdateFlyButton_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1" Opacity="0" HorizontalOptions="CenterAndExpand" CornerRadius="25"/>
         </Grid>
     </ContentPage>
 
@@ -65,11 +65,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Text="Update" x:Name="UpdateButtonHome" Clicked="UpdateButtonHome_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1" Opacity="1"/>
-            <Button Text="Convert" x:Name="FlashButton" Clicked="FlashButton_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1"/>
             
-            
-            
+            <ImageButton Source="IndiaReloadIcon" x:Name="UpdateButtonHome" Clicked="UpdateButtonHome_Clicked" Grid.Row="9" Grid.Column="1" BorderWidth="1" Opacity="1" HorizontalOptions="CenterAndExpand" CornerRadius="25"/>
+            <Button Text="Convert" x:Name="FlashButton" Clicked="FlashButton_Clicked" Grid.Row="9" Grid.Column="0" BorderWidth="1" CornerRadius="20"/>
+                       
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="TimeHomeUK" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="0" />
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="TimeHomeIN" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1" />
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="Connection" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="2" Grid.Column="0" />
@@ -105,8 +104,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="9" Grid.Column="0" Text="Start" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" x:Name="Startsleep" Clicked="Startsleep_Clicked"/>
-            <Button Grid.Row="9" Grid.Column="1" Text="Update" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" x:Name="Updatesleep" Clicked="Updatesleep_Clicked" Opacity="0"/>
+            <Button Grid.Row="9" Grid.Column="0" Text="Start" BackgroundColor="MediumPurple" TextColor="Black" BorderColor="Black" BorderWidth="1" x:Name="Startsleep" Clicked="Startsleep_Clicked" CornerRadius="20"/>
+            <ImageButton Source="IndiaReloadNight" Grid.Row="9" Grid.Column="1" BackgroundColor="MediumPurple" BorderColor="Black" BorderWidth="1" x:Name="Updatesleep" Clicked="Updatesleep_Clicked" Opacity="0" HorizontalOptions="CenterAndExpand" CornerRadius="25"/>
 
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="SleepTime" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="0" />
             <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="SleepBreaths" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" Grid.Row="0" Grid.Column="1" />
